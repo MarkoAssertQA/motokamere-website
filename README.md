@@ -1,26 +1,3 @@
-# Motokamere Website
-
-## 🎯 Project Rule: Keep It Simple
-
-**Sve mora da bude jednostavno. Simple.**
-
-This project follows a strict simplicity principle. Every component, feature, and implementation should be as simple as possible. Avoid over-engineering, complex abstractions, and unnecessary complexity.
-
-### 🤖 AI Assistant Instructions
-
-**For AI Cursor and any AI assistant working on this project:**
-
-- Always prioritize simplicity over complexity
-- Choose the simplest solution that works
-- Avoid unnecessary abstractions, design patterns, or frameworks
-- Write straightforward, readable code
-- Prefer vanilla solutions over complex libraries when possible
-- Keep components small and focused
-- Use basic CSS/styling over complex frameworks unless absolutely necessary
-- Remember: **Sve mora da bude jednostavno. Simple.**
-
----
-
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
