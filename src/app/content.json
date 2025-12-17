@@ -1,0 +1,118 @@
+{
+  "brand": {
+    "name": "MotoKamere",
+    "namePart1": "Moto",
+    "namePart2": "Kamere"
+  },
+  "navigation": {
+    "links": [
+      { "name": "Početna", "href": "#pocetna" },
+      { "name": "Proizvodi", "href": "#proizvodi" },
+      { "name": "Karakteristike", "href": "#karakteristike" },
+      { "name": "Kontakt", "href": "#kontakt" }
+    ],
+    "ctaButton": "Kupi Sada"
+  },
+  "hero": {
+    "badge": "Nova 4K Ultra HD Dostupna",
+    "titleLine1": "Snimite Svaki",
+    "titleLine2": "Vaš kilometar",
+    "description": "Premium motociklističke dash kamere sa kristalno čistim snimkom, noćnim vidom i GPS praćenjem. Zaštitite se na svakom putovanju.",
+    "primaryButton": "Istraži Proizvode",
+    "secondaryButton": "Pogledaj Demo",
+    "previewText": "4K Ultra HD Pregled",
+    "stats": {
+      "resolution": {
+        "value": "4K",
+        "label": "Rezolucija"
+      },
+      "angle": {
+        "value": "170°",
+        "label": "Široki Ugao"
+      }
+    }
+  },
+  "stats": [
+    { "value": "500+", "label": "Zadovoljnih Vozača" },
+    { "value": "50+", "label": "Modela Kamera" },
+    { "value": "24/7", "label": "Podrška" },
+    { "value": "4.9★", "label": "Ocena" }
+  ],
+  "products": {
+    "title": "Naši",
+    "titleHighlight": "Proizvodi",
+    "description": "Profesionalne kamere napravljene za put. Izaberite svog savršenog saputnika.",
+    "items": [
+      {
+        "id": "basic-hd",
+        "name": "Osnovna HD Kamera",
+        "description": "1080p snimanje, vodootporna, magnetni nosač",
+        "price": "8.990 RSD",
+        "buttonText": "Pogledaj",
+        "featured": false
+      },
+      {
+        "id": "pro-4k",
+        "name": "Pro 4K Kamera",
+        "description": "4K snimanje, noćni vid, GPS praćenje",
+        "price": "19.990 RSD",
+        "buttonText": "Kupi Sada",
+        "featured": true,
+        "badge": "NAJPOPULARNIJE"
+      },
+      {
+        "id": "dual-system",
+        "name": "Dual Sistem Kamera",
+        "description": "Prednje + zadnje snimanje, sinhronizovan snimak",
+        "price": "29.990 RSD",
+        "buttonText": "Pogledaj",
+        "featured": false
+      }
+    ]
+  },
+  "features": {
+    "title": "Zašto",
+    "titleHighlight": "MotoKamere?",
+    "description": "Napravljeno od vozača, za vozače. Svaka funkcija osmišljena sa vašom bezbednošću na umu.",
+    "items": [
+      {
+        "icon": "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
+        "title": "Garantovan Kvalitet",
+        "description": "Rigorozno testiranje svakog proizvoda"
+      },
+      {
+        "icon": "M13 10V3L4 14h7v7l9-11h-7z",
+        "title": "Brza Dostava",
+        "description": "Besplatna dostava širom Srbije"
+      },
+      {
+        "icon": "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+        "title": "24/7 Podrška",
+        "description": "Stručna pomoć kad god vam zatreba"
+      },
+      {
+        "icon": "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+        "title": "2 Godine Garancije",
+        "description": "Potpuni mir za vas"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Spremni za",
+    "titleHighlight": "Bezbednu Vožnju?",
+    "description": "Pridružite se hiljadama vozača koji veruju MotoKamerama za svoju bezbednost. Besplatna konsultacija i uputstvo za instalaciju uključeni.",
+    "primaryButton": "Kupi Sada",
+    "secondaryButton": "Kontaktiraj Prodaju"
+  },
+  "footer": {
+    "description": "Premium motociklističke kamere. Snimite svaki trenutak. Vozite zaštićeni.",
+    "quickLinksTitle": "Brzi Linkovi",
+    "contactTitle": "Kontakt",
+    "contact": {
+      "email": "info@motokamere.rs",
+      "phone": "+381 11 123 4567"
+    },
+    "copyright": "© 2024 MotoKamere. Sva prava zadržana."
+  }
+}
+
