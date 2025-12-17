@@ -2,10 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-// TODO: Zameni sa pravim YouTube video ID-jevima
 const youtubeVideos = [
-  "VIDEO_ID_1", // Prvi video - zameni sa pravim ID-jem
-  "VIDEO_ID_2", // Drugi video - zameni sa pravim ID-jem
+  "B3KeAHNPUNw",
+  "CUsaoNGRkNY",
 ];
 
 export default function HeroVideo() {
