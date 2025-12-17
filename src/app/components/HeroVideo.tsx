@@ -2,10 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const youtubeVideos = [
-  "B3KeAHNPUNw",
-  "CUsaoNGRkNY",
-];
+const youtubeVideos = ["B3KeAHNPUNw", "CUsaoNGRkNY"];
 
 export default function HeroVideo() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(() => Math.floor(Math.random() * youtubeVideos.length));

@@ -30,7 +30,7 @@ export default function Home() {
           data-cy="hero-container"
           className="relative w-full max-w-[95rem] mx-auto pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-4 py-24"
         >
-          <div data-cy="hero-grid" className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div data-cy="hero-grid" className="grid grid-cols-1 lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16 items-center">
             <div data-cy="hero-content" className="space-y-8 relative z-10">
               <div
                 data-cy="hero-badge"
