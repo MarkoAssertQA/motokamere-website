@@ -1,4 +1,5 @@
-import Image from "next/image";
+import Navigation from "./components/Navigation";
+import content from "./content.json";
 
 export default function Home() {
   return (
@@ -7,48 +8,7 @@ export default function Home() {
       <div className="fixed inset-0 bg-[linear-gradient(rgba(0,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none"></div>
 
       {/* Navigation */}
-      <nav className="relative z-50 border-b border-cyan-500/20 bg-[#0a0a0f]/80 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/30">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <span className="text-2xl font-bold tracking-tight">
-                <span className="text-cyan-400">Moto</span>
-                <span className="text-white">Kamere</span>
-              </span>
-            </div>
-            <div className="hidden md:flex items-center space-x-1">
-              {[
-                { name: "Početna", href: "pocetna" },
-                { name: "Proizvodi", href: "proizvodi" },
-                { name: "Karakteristike", href: "karakteristike" },
-                { name: "Kontakt", href: "kontakt" },
-              ].map((item) => (
-                <a
-                  key={item.href}
-                  href={`#${item.href}`}
-                  className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors relative group"
-                >
-                  {item.name}
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
-                </a>
-              ))}
-            </div>
-            <button className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300">
-              Kupi Sada
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       {/* Hero Section */}
       <section id="pocetna" className="relative min-h-[90vh] flex items-center">
@@ -61,22 +21,21 @@ export default function Home() {
             <div className="space-y-8">
               <div className="inline-flex items-center px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-medium">
                 <span className="w-2 h-2 bg-cyan-400 rounded-full mr-2 animate-pulse"></span>
-                Nova 4K Ultra HD Dostupna
+                {content.hero.badge}
               </div>
               <h1 className="text-5xl md:text-7xl font-black leading-tight">
-                <span className="text-white">Snimite Svaku</span>
+                <span className="text-white">{content.hero.titleLine1}</span>
                 <br />
                 <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                  Vašu Vožnju
+                  {content.hero.titleLine2}
                 </span>
               </h1>
               <p className="text-xl text-gray-400 leading-relaxed max-w-lg">
-                Premium motociklističke kamere sa kristalno čistim snimkom, noćnim vidom i GPS praćenjem. Zaštitite se na
-                svakom putovanju.
+                {content.hero.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <button className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 flex items-center justify-center gap-2">
-                  Istraži Proizvode
+                  {content.hero.primaryButton}
                   <svg
                     className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                     fill="none"
@@ -101,7 +60,7 @@ export default function Home() {
                       d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  Pogledaj Demo
+                  {content.hero.secondaryButton}
                 </button>
               </div>
             </div>
@@ -123,17 +82,17 @@ export default function Home() {
                         />
                       </svg>
                     </div>
-                    <p className="text-gray-500 font-medium">4K Ultra HD Pregled</p>
+                    <p className="text-gray-500 font-medium">{content.hero.previewText}</p>
                   </div>
                 </div>
                 {/* Floating stats */}
                 <div className="absolute -right-4 top-1/4 bg-gray-900/90 border border-cyan-500/30 rounded-xl px-4 py-3 backdrop-blur-sm">
-                  <p className="text-cyan-400 font-bold text-lg">4K</p>
-                  <p className="text-gray-500 text-xs">Rezolucija</p>
+                  <p className="text-cyan-400 font-bold text-lg">{content.hero.stats.resolution.value}</p>
+                  <p className="text-gray-500 text-xs">{content.hero.stats.resolution.label}</p>
                 </div>
                 <div className="absolute -left-4 bottom-1/4 bg-gray-900/90 border border-cyan-500/30 rounded-xl px-4 py-3 backdrop-blur-sm">
-                  <p className="text-cyan-400 font-bold text-lg">170°</p>
-                  <p className="text-gray-500 text-xs">Široki Ugao</p>
+                  <p className="text-cyan-400 font-bold text-lg">{content.hero.stats.angle.value}</p>
+                  <p className="text-gray-500 text-xs">{content.hero.stats.angle.label}</p>
                 </div>
               </div>
             </div>
@@ -145,12 +104,7 @@ export default function Home() {
       <section className="relative py-16 border-y border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: "500+", label: "Zadovoljnih Vozača" },
-              { value: "50+", label: "Modela Kamera" },
-              { value: "24/7", label: "Podrška" },
-              { value: "4.9★", label: "Ocena" },
-            ].map((stat, i) => (
+            {content.stats.map((stat, i) => (
               <div key={i} className="text-center">
                 <div className="text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1">
                   {stat.value}
@@ -169,97 +123,84 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-4">
-              <span className="text-white">Naši </span>
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Proizvodi</span>
+              <span className="text-white">{content.products.title} </span>
+              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                {content.products.titleHighlight}
+              </span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Profesionalne kamere napravljene za put. Izaberite svog savršenog saputnika.
+              {content.products.description}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Product 1 */}
-            <div className="group relative bg-gradient-to-b from-gray-800/30 to-gray-900/30 border border-gray-800 rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-              <div className="relative">
-                <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                      />
-                    </svg>
+            {content.products.items.map((product) => (
+              <div
+                key={product.id}
+                className={`group relative rounded-2xl p-6 transition-all duration-500 ${
+                  product.featured
+                    ? "bg-gradient-to-b from-cyan-500/10 to-gray-900/30 border border-cyan-500/30 scale-105 shadow-2xl shadow-cyan-500/10"
+                    : "bg-gradient-to-b from-gray-800/30 to-gray-900/30 border border-gray-800 hover:border-cyan-500/50"
+                }`}
+              >
+                {product.featured && product.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold rounded-full">
+                    {product.badge}
+                  </div>
+                )}
+                {!product.featured && (
+                  <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                )}
+                <div className="relative">
+                  <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center">
+                    <div
+                      className={`${
+                        product.featured ? "w-20 h-20" : "w-16 h-16"
+                      } bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center ${
+                        product.featured ? "shadow-lg shadow-cyan-500/30" : ""
+                      }`}
+                    >
+                      <svg
+                        className={`${product.featured ? "w-10 h-10" : "w-8 h-8"} text-white`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        {product.id === "dual-system" ? (
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+                          />
+                        ) : (
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                          />
+                        )}
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">{product.name}</h3>
+                  <p className="text-gray-500 text-sm mb-4">{product.description}</p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl font-bold text-cyan-400">{product.price}</span>
+                    <button
+                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
+                        product.featured
+                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-lg hover:shadow-cyan-500/30"
+                          : "bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-white"
+                      }`}
+                    >
+                      {product.buttonText}
+                    </button>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">Osnovna HD Kamera</h3>
-                <p className="text-gray-500 text-sm mb-4">1080p snimanje, vodootporna, magnetni nosač</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-cyan-400">8.990 RSD</span>
-                  <button className="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium rounded-lg hover:bg-cyan-500 hover:text-white transition-all">
-                    Pogledaj
-                  </button>
-                </div>
               </div>
-            </div>
-
-            {/* Product 2 - Featured */}
-            <div className="group relative bg-gradient-to-b from-cyan-500/10 to-gray-900/30 border border-cyan-500/30 rounded-2xl p-6 scale-105 shadow-2xl shadow-cyan-500/10">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold rounded-full">
-                NAJPOPULARNIJE
-              </div>
-              <div className="relative">
-                <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/30">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Pro 4K Kamera</h3>
-                <p className="text-gray-500 text-sm mb-4">4K snimanje, noćni vid, GPS praćenje</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-cyan-400">19.990 RSD</span>
-                  <button className="px-4 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-medium rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all">
-                    Kupi Sada
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Product 3 */}
-            <div className="group relative bg-gradient-to-b from-gray-800/30 to-gray-900/30 border border-gray-800 rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-              <div className="relative">
-                <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center">
-                  <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-white mb-2">Dual Sistem Kamera</h3>
-                <p className="text-gray-500 text-sm mb-4">Prednje + zadnje snimanje, sinhronizovan snimak</p>
-                <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-cyan-400">29.990 RSD</span>
-                  <button className="px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium rounded-lg hover:bg-cyan-500 hover:text-white transition-all">
-                    Pogledaj
-                  </button>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -269,39 +210,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-black mb-4">
-              <span className="text-white">Zašto </span>
+              <span className="text-white">{content.features.title} </span>
               <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                MotoKamere?
+                {content.features.titleHighlight}
               </span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              Napravljeno od vozača, za vozače. Svaka funkcija osmišljena sa vašom bezbednošću na umu.
+              {content.features.description}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
-                title: "Garantovan Kvalitet",
-                desc: "Rigorozno testiranje svakog proizvoda",
-              },
-              {
-                icon: "M13 10V3L4 14h7v7l9-11h-7z",
-                title: "Brza Dostava",
-                desc: "Besplatna dostava širom Srbije",
-              },
-              {
-                icon: "M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-                title: "24/7 Podrška",
-                desc: "Stručna pomoć kad god vam zatreba",
-              },
-              {
-                icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
-                title: "2 Godine Garancije",
-                desc: "Potpuni mir za vas",
-              },
-            ].map((feature, i) => (
+            {content.features.items.map((feature, i) => (
               <div
                 key={i}
                 className="group p-6 bg-gray-800/30 border border-gray-800 rounded-2xl hover:border-cyan-500/30 transition-all duration-300"
@@ -312,7 +232,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-                <p className="text-gray-500 text-sm">{feature.desc}</p>
+                <p className="text-gray-500 text-sm">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -326,21 +246,20 @@ export default function Home() {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-6xl font-black mb-6">
-            <span className="text-white">Spremni za </span>
+            <span className="text-white">{content.cta.title} </span>
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Bezbednu Vožnju?
+              {content.cta.titleHighlight}
             </span>
           </h2>
           <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Pridružite se hiljadama vozača koji veruju MotoKamerama za svoju bezbednost. Besplatna konsultacija i
-            uputstvo za instalaciju uključeni.
+            {content.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300">
-              Kupi Sada
+              {content.cta.primaryButton}
             </button>
             <button className="px-8 py-4 border border-gray-700 text-gray-300 font-bold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all duration-300">
-              Kontaktiraj Prodaju
+              {content.cta.secondaryButton}
             </button>
           </div>
         </div>
@@ -363,12 +282,12 @@ export default function Home() {
                   </svg>
                 </div>
                 <span className="text-2xl font-bold">
-                  <span className="text-cyan-400">Moto</span>
-                  <span className="text-white">Kamere</span>
+                  <span className="text-cyan-400">{content.brand.namePart1}</span>
+                  <span className="text-white">{content.brand.namePart2}</span>
                 </span>
               </div>
               <p className="text-gray-500 mb-6 max-w-sm">
-                Premium motociklističke kamere. Snimite svaki trenutak. Vozite zaštićeni.
+                {content.footer.description}
               </p>
               <div className="flex space-x-4">
                 {["twitter", "instagram", "youtube"].map((social) => (
@@ -385,17 +304,12 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h4 className="text-white font-bold mb-4">Brzi Linkovi</h4>
+              <h4 className="text-white font-bold mb-4">{content.footer.quickLinksTitle}</h4>
               <ul className="space-y-3">
-                {[
-                  { name: "Početna", href: "pocetna" },
-                  { name: "Proizvodi", href: "proizvodi" },
-                  { name: "Karakteristike", href: "karakteristike" },
-                  { name: "Kontakt", href: "kontakt" },
-                ].map((link) => (
+                {content.navigation.links.map((link) => (
                   <li key={link.href}>
                     <a
-                      href={`#${link.href}`}
+                      href={link.href}
                       className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
                     >
                       {link.name}
@@ -405,7 +319,7 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="text-white font-bold mb-4">Kontakt</h4>
+              <h4 className="text-white font-bold mb-4">{content.footer.contactTitle}</h4>
               <ul className="space-y-3 text-gray-500 text-sm">
                 <li className="flex items-center gap-2">
                   <svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -416,7 +330,7 @@ export default function Home() {
                       d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                     />
                   </svg>
-                  info@motokamere.rs
+                  {content.footer.contact.email}
                 </li>
                 <li className="flex items-center gap-2">
                   <svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -427,13 +341,13 @@ export default function Home() {
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  +381 11 123 4567
+                  {content.footer.contact.phone}
                 </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-600 text-sm">
-            <p>© 2024 MotoKamere. Sva prava zadržana.</p>
+            <p>{content.footer.copyright}</p>
           </div>
         </div>
       </footer>
