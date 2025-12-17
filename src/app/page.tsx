@@ -1,4 +1,5 @@
 import Navigation from "./components/Navigation";
+import HeroVideo from "./components/HeroVideo";
 import content from "./content.json";
 
 export default function Home() {
@@ -99,57 +100,34 @@ export default function Home() {
             </div>
 
             {/* Hero Visual */}
-            <div data-cy="hero-visual" className="relative">
+            <div data-cy="hero-visual" className="relative lg:scale-[1.35] lg:origin-center">
               <div
                 data-cy="hero-visual-blur"
-                className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-600/20 rounded-3xl blur-3xl"
+                className="absolute -inset-8 bg-gradient-to-r from-cyan-500/25 to-blue-600/25 rounded-3xl blur-[60px]"
               ></div>
               <div
                 data-cy="hero-visual-card"
-                className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-3xl p-8 backdrop-blur-sm"
+                className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-3xl p-10 backdrop-blur-sm"
               >
                 <div
                   data-cy="hero-video-preview"
-                  className="aspect-video bg-gradient-to-br from-gray-900 to-black rounded-2xl flex items-center justify-center relative overflow-hidden"
+                  className="aspect-video bg-gradient-to-br from-gray-900 to-black rounded-2xl relative overflow-hidden"
                 >
+                  <HeroVideo />
                   <div
-                    data-cy="hero-video-shimmer"
-                    className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(0,255,255,0.05)_50%,transparent_75%)] bg-[length:200%_200%] animate-shimmer"
+                    data-cy="hero-video-overlay"
+                    className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl pointer-events-none"
                   ></div>
-                  <div data-cy="hero-video-content" className="text-center z-10">
-                    <div
-                      data-cy="hero-video-icon-container"
-                      className="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg shadow-cyan-500/30"
-                    >
-                      <svg
-                        data-cy="hero-video-icon"
-                        className="w-10 h-10 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                    <p data-cy="hero-preview-text" className="text-gray-500 font-medium">
-                      {content.hero.previewText}
-                    </p>
-                  </div>
                 </div>
                 {/* Floating stats */}
                 <div
                   data-cy="hero-stat-resolution"
-                  className="absolute -right-4 top-1/4 bg-gray-900/90 border border-cyan-500/30 rounded-xl px-4 py-3 backdrop-blur-sm"
+                  className="absolute -right-6 top-1/4 bg-gray-900/95 border border-cyan-500/40 rounded-2xl px-5 py-4 backdrop-blur-md shadow-lg shadow-cyan-500/10"
                 >
-                  <p data-cy="hero-stat-resolution-value" className="text-cyan-400 font-bold text-lg">
+                  <p data-cy="hero-stat-resolution-value" className="text-cyan-400 font-bold text-xl">
                     {content.hero.stats.resolution.value}
                   </p>
-                  <p data-cy="hero-stat-resolution-label" className="text-gray-500 text-xs">
+                  <p data-cy="hero-stat-resolution-label" className="text-gray-400 text-sm">
                     {content.hero.stats.resolution.label}
                   </p>
                 </div>
