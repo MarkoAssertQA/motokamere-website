@@ -21,7 +21,7 @@ export default function HeroVideo() {
     <iframe
       data-cy="hero-video"
       className="absolute inset-0 w-full h-full rounded-2xl"
-      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1`}
+      src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&playlist=${videoId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&vq=hd1440&hd=1`}
       title="Hero Video"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
