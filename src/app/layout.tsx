@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "MotoKamere - Premium Motociklističke Kamere",
-  description: "Premium motociklističke kamere sa kristalno čistim snimkom, noćnim vidom i GPS praćenjem. Zaštitite se na svakom putovanju.",
+  description:
+    "Premium motociklističke kamere sa kristalno čistim snimkom, noćnim vidom i GPS praćenjem. Zaštitite se na svakom putovanju.",
 };
 
 export default function RootLayout({
@@ -23,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+    <html lang="en" data-cy="html-root">
+      <body data-cy="body" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

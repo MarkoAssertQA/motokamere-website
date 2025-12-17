@@ -7,13 +7,22 @@ export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="relative z-50 border-b border-cyan-500/20 bg-[#0a0a0f]/80 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav data-cy="navigation" className="relative z-50 border-b border-cyan-500/20 bg-[#0a0a0f]/80 backdrop-blur-xl">
+      <div data-cy="navigation-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div data-cy="navigation-content" className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/30">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div data-cy="logo-container" className="flex items-center space-x-3">
+            <div
+              data-cy="logo-icon"
+              className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/30"
+            >
+              <svg
+                data-cy="logo-svg"
+                className="w-6 h-6 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -22,29 +31,40 @@ export default function Navigation() {
                 />
               </svg>
             </div>
-            <span className="text-2xl font-bold tracking-tight">
-              <span className="text-cyan-400">{content.brand.namePart1}</span>
-              <span className="text-white">{content.brand.namePart2}</span>
+            <span data-cy="logo-text" className="text-2xl font-bold tracking-tight">
+              <span data-cy="logo-text-part1" className="text-cyan-400">
+                {content.brand.namePart1}
+              </span>
+              <span data-cy="logo-text-part2" className="text-white">
+                {content.brand.namePart2}
+              </span>
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {content.navigation.links.map((item) => (
+          <div data-cy="desktop-nav" className="hidden md:flex items-center space-x-1">
+            {content.navigation.links.map((item, index) => (
               <a
                 key={item.href}
                 href={item.href}
+                data-cy={`nav-link-${index}`}
                 className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors relative group"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                <span
+                  data-cy={`nav-link-underline-${index}`}
+                  className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                ></span>
               </a>
             ))}
           </div>
 
           {/* Desktop CTA Button */}
-          <div className="hidden md:block">
-            <button className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300">
+          <div data-cy="desktop-cta-container" className="hidden md:block">
+            <button
+              data-cy="desktop-cta-button"
+              className="px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
+            >
               {content.navigation.ctaButton}
             </button>
           </div>
@@ -52,15 +72,28 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            data-cy="mobile-menu-button"
             className="md:hidden p-2 rounded-lg text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 transition-all"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                data-cy="mobile-menu-close-icon"
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                data-cy="mobile-menu-open-icon"
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
@@ -70,23 +103,28 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       <div
+        data-cy="mobile-menu"
         className={`md:hidden absolute top-full left-0 right-0 bg-[#0a0a0f]/95 backdrop-blur-xl border-b border-cyan-500/20 transition-all duration-300 overflow-hidden ${
           isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-4 py-4 space-y-2">
-          {content.navigation.links.map((item) => (
+        <div data-cy="mobile-menu-content" className="px-4 py-4 space-y-2">
+          {content.navigation.links.map((item, index) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setIsMenuOpen(false)}
+              data-cy={`mobile-nav-link-${index}`}
               className="block px-4 py-3 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all font-medium"
             >
               {item.name}
             </a>
           ))}
-          <div className="pt-2 border-t border-gray-800">
-            <button className="w-full px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300">
+          <div data-cy="mobile-cta-container" className="pt-2 border-t border-gray-800">
+            <button
+              data-cy="mobile-cta-button"
+              className="w-full px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
+            >
               {content.navigation.ctaButton}
             </button>
           </div>
