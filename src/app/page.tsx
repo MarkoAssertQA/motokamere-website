@@ -26,12 +26,15 @@ export default function Home() {
           className="absolute bottom-20 right-10 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px]"
         ></div>
 
-        <div data-cy="hero-container" className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div data-cy="hero-grid" className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div data-cy="hero-content" className="space-y-8">
+        <div
+          data-cy="hero-container"
+          className="relative w-full max-w-[95rem] mx-auto pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-4 py-24"
+        >
+          <div data-cy="hero-grid" className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div data-cy="hero-content" className="space-y-8 relative z-10">
               <div
                 data-cy="hero-badge"
-                className="inline-flex items-center px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-medium"
+                className="inline-flex items-center px-4 py-2 bg-cyan-500/20 border border-cyan-500/50 rounded-full text-cyan-300 text-sm font-semibold"
               >
                 <span
                   data-cy="hero-badge-indicator"
@@ -51,13 +54,13 @@ export default function Home() {
                   {content.hero.titleLine2}
                 </span>
               </h1>
-              <p data-cy="hero-description" className="text-xl text-gray-400 leading-relaxed max-w-lg">
+              <p data-cy="hero-description" className="text-xl text-gray-300 leading-relaxed max-w-lg">
                 {content.hero.description}
               </p>
               <div data-cy="hero-buttons" className="flex flex-col sm:flex-row gap-4">
                 <button
                   data-cy="hero-primary-button"
-                  className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="group px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl shadow-lg shadow-cyan-500/25 hover:shadow-2xl hover:shadow-cyan-500/40 transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   {content.hero.primaryButton}
                   <svg
@@ -72,7 +75,7 @@ export default function Home() {
                 </button>
                 <button
                   data-cy="hero-secondary-button"
-                  className="px-8 py-4 border border-gray-700 text-gray-300 font-bold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all duration-300 flex items-center justify-center gap-2"
+                  className="px-8 py-4 border border-gray-600 text-white font-bold rounded-xl hover:border-cyan-500 hover:text-cyan-400 transition-all duration-300 flex items-center justify-center gap-2 bg-white/5 backdrop-blur-sm"
                 >
                   <svg
                     data-cy="hero-secondary-button-icon"
@@ -100,7 +103,7 @@ export default function Home() {
             </div>
 
             {/* Hero Visual */}
-            <div data-cy="hero-visual" className="relative lg:scale-[1.35] lg:origin-center">
+            <div data-cy="hero-visual" className="relative">
               <div
                 data-cy="hero-visual-blur"
                 className="absolute -inset-8 bg-gradient-to-r from-cyan-500/25 to-blue-600/25 rounded-3xl blur-[60px]"
@@ -122,7 +125,7 @@ export default function Home() {
                 {/* Floating stats */}
                 <div
                   data-cy="hero-stat-resolution"
-                  className="absolute -right-6 top-1/4 bg-gray-900/95 border border-cyan-500/40 rounded-2xl px-5 py-4 backdrop-blur-md shadow-lg shadow-cyan-500/10"
+                  className="absolute right-2 top-1/4 bg-gray-900/95 border border-cyan-500/40 rounded-2xl px-5 py-4 backdrop-blur-md shadow-lg shadow-cyan-500/10"
                 >
                   <p data-cy="hero-stat-resolution-value" className="text-cyan-400 font-bold text-xl">
                     {content.hero.stats.resolution.value}
@@ -133,7 +136,7 @@ export default function Home() {
                 </div>
                 <div
                   data-cy="hero-stat-angle"
-                  className="absolute -left-4 bottom-1/4 bg-gray-900/90 border border-cyan-500/30 rounded-xl px-4 py-3 backdrop-blur-sm"
+                  className="absolute left-2 bottom-1/4 bg-gray-900/90 border border-cyan-500/30 rounded-xl px-4 py-3 backdrop-blur-sm"
                 >
                   <p data-cy="hero-stat-angle-value" className="text-cyan-400 font-bold text-lg">
                     {content.hero.stats.angle.value}
