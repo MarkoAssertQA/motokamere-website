@@ -1,5 +1,6 @@
 import Navigation from "./components/Navigation";
 import HeroVideo from "./components/HeroVideo";
+import Link from "next/link";
 import content from "./content.json";
 
 export default function Home() {
@@ -172,6 +173,96 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Problems Section */}
+      <section data-cy="problems-section" className="relative py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Problems Card */}
+          <div
+            data-cy="problems-card"
+            className="relative bg-gradient-to-br from-red-950/40 to-gray-900/60 border border-red-500/30 rounded-3xl p-8 backdrop-blur-sm overflow-hidden"
+          >
+            {/* Background glow */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-red-500/10 rounded-full blur-[100px]"></div>
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-red-600/10 rounded-full blur-[100px]"></div>
+
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <span className="inline-flex items-center px-4 py-2 bg-red-500/20 border border-red-500/40 rounded-full text-red-400 text-sm font-semibold mb-4">
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                    />
+                  </svg>
+                  Bez dokaza, nema pravde
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
+                  Vozite li <span className="text-red-400">nezaštićeni</span>?
+                </h2>
+                <p className="text-gray-400 text-sm">Svaki dan na putu riskirate da ostanete bez dokaza</p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-red-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-red-500/20 border border-red-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-red-400 text-xl">✕</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Sudar bez svedoka</h3>
+                    <p className="text-gray-500 text-sm">Nema očevidaca? Vaša reč protiv njegove.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-red-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-red-500/20 border border-red-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-red-400 text-xl">✕</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">&quot;On kaže – ja kažem&quot; situacije</h3>
+                    <p className="text-gray-500 text-sm">Ko će da vam veruje bez video dokaza?</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-red-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-red-500/20 border border-red-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-red-400 text-xl">✕</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Bežanje sa mesta nezgode</h3>
+                    <p className="text-gray-500 text-sm">Vozač pobegao? Bez snimka, nema identifikacije.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-red-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-red-500/20 border border-red-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-red-400 text-xl">✕</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Problemi sa osiguranjem / policijom</h3>
+                    <p className="text-gray-500 text-sm">Komplikovani postupci bez čvrstih dokaza.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA below problems card */}
+          <div className="mt-12 text-center">
+            <a
+              href="#proizvodi"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-cyan-500/30 transition-all"
+            >
+              Pogledaj kamere
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Products Section */}
       <section data-cy="products-section" id="proizvodi" className="relative py-24">
         <div
@@ -199,7 +290,8 @@ export default function Home() {
 
           <div data-cy="products-grid" className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {content.products.items.map((product, index) => (
-              <div
+              <Link
+                href={`/proizvod/${product.id}`}
                 key={product.id}
                 data-cy={`product-card-${product.id}`}
                 className={`group relative rounded-2xl p-6 transition-all duration-500 ${
@@ -270,7 +362,7 @@ export default function Home() {
                     <span data-cy={`product-price-${product.id}`} className="text-2xl font-bold text-cyan-400">
                       {product.price}
                     </span>
-                    <button
+                    <span
                       data-cy={`product-button-${product.id}`}
                       className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
                         product.featured
@@ -279,11 +371,83 @@ export default function Home() {
                       }`}
                     >
                       {product.buttonText}
-                    </button>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Daily Use Benefits Section */}
+      <section data-cy="benefits-section" className="relative py-20">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Benefits Card */}
+          <div
+            data-cy="benefits-card"
+            className="relative bg-gradient-to-br from-cyan-950/40 to-gray-900/60 border border-cyan-500/30 rounded-3xl p-8 backdrop-blur-sm overflow-hidden"
+          >
+            {/* Background glow */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-[100px]"></div>
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-600/10 rounded-full blur-[100px]"></div>
+
+            <div className="relative z-10">
+              <div className="text-center mb-8">
+                <span className="inline-flex items-center px-4 py-2 bg-cyan-500/20 border border-cyan-500/40 rounded-full text-cyan-400 text-sm font-semibold mb-4">
+                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Koristi kameru za sve
+                </span>
+                <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
+                  Koristi ga <span className="text-cyan-400">svakodnevno</span>
+                </h2>
+                <p className="text-gray-400 text-sm">Više od zaštite – tvoj saputnik na svakoj vožnji</p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-cyan-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-cyan-500/20 border border-cyan-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-xl">🎥</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Dokaz bahate vožnje drugih</h3>
+                    <p className="text-gray-500 text-sm">Snimi prekršaje i zaštiti sebe na putu.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-cyan-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-cyan-500/20 border border-cyan-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-xl">🏍</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Uspomena na vožnju / putovanja</h3>
+                    <p className="text-gray-500 text-sm">Sačuvaj najlepše trenutke sa svojih tura.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-cyan-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-cyan-500/20 border border-cyan-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-xl">📱</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Deljenje klipova</h3>
+                    <p className="text-gray-500 text-sm">YouTube, Instagram, TikTok – podeli avanture.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-cyan-500/30 transition-colors">
+                  <span className="flex-shrink-0 w-10 h-10 bg-cyan-500/20 border border-cyan-500/40 rounded-lg flex items-center justify-center">
+                    <span className="text-xl">🧠</span>
+                  </span>
+                  <div>
+                    <h3 className="text-white font-bold mb-1">Lična analiza vožnje</h3>
+                    <p className="text-gray-500 text-sm">Pregledaj snimke i unapredi svoju tehniku.</p>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
