@@ -385,9 +385,7 @@ export default function ProizvodiPage() {
             />
           </svg>
           Filteri
-          {hasActiveFilters && (
-            <span className="px-2 py-0.5 bg-cyan-500 text-white text-xs rounded-full">Aktivni</span>
-          )}
+          {hasActiveFilters && <span className="px-2 py-0.5 bg-cyan-500 text-white text-xs rounded-full">Aktivni</span>}
         </button>
       </div>
 
@@ -471,7 +469,9 @@ export default function ProizvodiPage() {
                   {/* Out of Stock Overlay */}
                   {!product.inStock && (
                     <div className="absolute inset-0 bg-black/60 rounded-2xl z-10 flex items-center justify-center">
-                      <span className="px-4 py-2 bg-red-500/80 text-white font-semibold rounded-lg">Nije na stanju</span>
+                      <span className="px-4 py-2 bg-red-500/80 text-white font-semibold rounded-lg">
+                        Nije na stanju
+                      </span>
                     </div>
                   )}
 

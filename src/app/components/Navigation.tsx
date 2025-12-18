@@ -12,7 +12,7 @@ export default function Navigation() {
       <div data-cy="navigation-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div data-cy="navigation-content" className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div data-cy="logo-container" className="flex items-center space-x-3">
+          <Link href="/" data-cy="logo-container" className="flex items-center space-x-3">
             <div
               data-cy="logo-icon"
               className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/30"
@@ -40,7 +40,7 @@ export default function Navigation() {
                 {content.brand.namePart2}
               </span>
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div data-cy="desktop-nav" className="hidden md:flex items-center space-x-1">

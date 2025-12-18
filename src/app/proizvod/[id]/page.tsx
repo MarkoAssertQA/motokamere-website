@@ -266,7 +266,10 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
           </h2>
           <div className="space-y-4">
             {details.specifications.map((spec, index) => (
-              <div key={index} className="flex justify-between items-center py-3 border-b border-gray-700/50 last:border-0">
+              <div
+                key={index}
+                className="flex justify-between items-center py-3 border-b border-gray-700/50 last:border-0"
+              >
                 <span className="text-gray-400">{spec.label}</span>
                 <span className="text-white font-medium">{spec.value}</span>
               </div>
@@ -279,7 +282,9 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
       <div className="mt-16">
         <h2 className="text-3xl font-bold text-white mb-8">
           Pogledajte i{" "}
-          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">druge proizvode</span>
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            druge proizvode
+          </span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {content.products.items

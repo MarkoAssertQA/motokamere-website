@@ -8,8 +8,8 @@
     "links": [
       { "name": "Početna", "href": "#pocetna" },
       { "name": "Proizvodi", "href": "/proizvodi" },
-      { "name": "Karakteristike", "href": "#karakteristike" },
-      { "name": "Kontakt", "href": "#kontakt" }
+      { "name": "Montaže", "href": "#montaze" },
+      { "name": "Kontakt", "href": "/kontakt" }
     ],
     "ctaButton": "Kupi Sada"
   },
