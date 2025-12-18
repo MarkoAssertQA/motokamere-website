@@ -15,21 +15,21 @@
     "ctaButton": "Kupi Sada"
   },
   "hero": {
-    "badge": "Nova 4K Ultra HD Dostupna",
+    "badge": "Nova 2K Dual Kamera Dostupna",
     "titleLine1": "Snimite Svaki",
     "titleLine2": "Vaš kilometar",
-    "description": "Premium motociklističke dash kamere sa kristalno čistim snimkom, noćnim vidom i GPS praćenjem. Zaštitite se na svakom putovanju.",
+    "description": "Premium motociklističke dash kamere sa kristalno čistim snimkom, elektronskom stabilizacijom i pregledom putem aplikacije. Zaštitite se na svakom putovanju.",
     "primaryButton": "Istraži Proizvode",
     "secondaryButton": "Pogledaj Demo",
-    "previewText": "4K Ultra HD Pregled",
+    "previewText": "2K Ultra HD Pregled",
     "stats": {
       "resolution": {
-        "value": "4K",
+        "value": "2K",
         "label": "Rezolucija"
       },
       "angle": {
-        "value": "170°",
-        "label": "Široki Ugao"
+        "value": "Dual",
+        "label": "Kamera Sistem"
       }
     }
   },
@@ -82,9 +82,8 @@
         "name": "Pro 4K Kamera",
         "description": "4K snimanje, noćni vid, GPS praćenje",
         "price": "19.990 RSD",
-        "buttonText": "Kupi Sada",
-        "featured": true,
-        "badge": "NAJPOPULARNIJE"
+        "buttonText": "Pogledaj",
+        "featured": false
       },
       {
         "id": "dual-system",

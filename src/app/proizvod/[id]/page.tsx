@@ -97,6 +97,32 @@ const productDetails: Record<
     warranty: "2 godine",
     shipping: "Besplatna dostava",
   },
+  "innovv-k7": {
+    images: ["/products/innovv-k7-1.jpg", "/products/innovv-k7-2.jpg"],
+    specifications: [
+      { label: "Rezolucija", value: "2K+2K pri 30FPS" },
+      { label: "Alternativna rezolucija", value: "1080P+1080P pri 30FPS (sa EIS)" },
+      { label: "Stabilizacija", value: "EIS (Elektronska stabilizacija slike)" },
+      { label: "Povezivanje", value: "WiFi / App" },
+      { label: "Memorija", value: "Do 256GB microSD" },
+      { label: "Napajanje", value: "Direktno sa motora" },
+    ],
+    features: [
+      "Dual kamera sistem (prednja + zadnja)",
+      "2K+2K rezolucija pri 30FPS",
+      "Elektronska stabilizacija slike (EIS)",
+      "1080P+1080P sa uključenim EIS",
+      "Pregled i kontrola putem aplikacije",
+      "Vodootporno kućište",
+      "Profesionalna tehnologija snimanja",
+      "Jednostavna montaža",
+    ],
+    longDescription:
+      "INNOVV K7 je vrhunska motociklistička dash kamera sa 2K+2K rezolucijom pri 30FPS ili 1080P+1080P pri 30FPS kada je EIS (Elektronska Stabilizacija Slike) uključena. Sa vodećom tehnologijom digitalnog snimanja i elegantnom funkcijom pregleda putem aplikacije, K7 predstavlja profesionalno rešenje za dokumentovanje vaših vožnji.",
+    inStock: true,
+    warranty: "2 godine",
+    shipping: "Besplatna dostava",
+  },
 };
 
 export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
