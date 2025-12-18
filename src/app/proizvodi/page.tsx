@@ -2,143 +2,14 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import content from "../content.json";
 
-// Extended product data for filtering
-const allProducts = [
-  {
-    id: "basic-hd",
-    name: "Osnovna HD Kamera",
-    description: "1080p snimanje, vodootporna, magnetni nosač",
-    price: 8990,
-    priceDisplay: "8.990 RSD",
-    category: "kamera",
-    resolution: "1080p",
-    features: ["vodootporna", "magnetni-nosac"],
-    inStock: true,
-  },
-  {
-    id: "pro-4k",
-    name: "Pro 4K Kamera",
-    description: "4K snimanje, noćni vid, GPS praćenje",
-    price: 19990,
-    priceDisplay: "19.990 RSD",
-    category: "kamera",
-    resolution: "1440p",
-    features: ["vodootporna", "gps", "nocni-vid", "wifi"],
-    featured: false,
-    inStock: true,
-  },
-  {
-    id: "dual-system",
-    name: "Dual Sistem Kamera",
-    description: "Prednje + zadnje snimanje, sinhronizovan snimak",
-    price: 29990,
-    priceDisplay: "29.990 RSD",
-    category: "sistem",
-    resolution: "1080p",
-    features: ["vodootporna", "dual-kamera"],
-    inStock: true,
-  },
-  {
-    id: "mount-magnetic",
-    name: "Magnetni Nosač Pro",
-    description: "Snažan magnetni nosač za brzu montažu i demontažu",
-    price: 2490,
-    priceDisplay: "2.490 RSD",
-    category: "dodatak",
-    resolution: null,
-    features: ["magnetni-nosac"],
-    inStock: true,
-  },
-  {
-    id: "mount-helmet",
-    name: "Nosač za Kacigu",
-    description: "Univerzalni nosač za sve tipove kaciga",
-    price: 1990,
-    priceDisplay: "1.990 RSD",
-    category: "dodatak",
-    resolution: null,
-    features: [],
-    inStock: true,
-  },
-  {
-    id: "memory-card-128",
-    name: "microSD 128GB",
-    description: "Brza memorijska kartica optimizovana za snimanje",
-    price: 2990,
-    priceDisplay: "2.990 RSD",
-    category: "dodatak",
-    resolution: null,
-    features: [],
-    inStock: true,
-  },
-  {
-    id: "memory-card-256",
-    name: "microSD 256GB",
-    description: "Profesionalna memorijska kartica za duže snimanje",
-    price: 4990,
-    priceDisplay: "4.990 RSD",
-    category: "dodatak",
-    resolution: null,
-    features: [],
-    inStock: false,
-  },
-  {
-    id: "waterproof-case",
-    name: "Vodootporno Kućište Pro",
-    description: "IP68 zaštita za ekstremne uslove",
-    price: 3490,
-    priceDisplay: "3.490 RSD",
-    category: "dodatak",
-    resolution: null,
-    features: ["vodootporna"],
-    inStock: true,
-  },
-  {
-    id: "innovv-k7",
-    name: "Innovv K7",
-    description: "Dual kamera sistem 2K+2K pri 30FPS, elektronska stabilizacija slike (EIS), pregled putem aplikacije",
-    price: 45333,
-    priceDisplay: "45.333 RSD",
-    category: "sistem",
-    resolution: "1440p",
-    features: ["vodootporna", "dual-kamera", "wifi"],
-    featured: true,
-    badge: "NAJPOPULARNIJE",
-    inStock: true,
-  },
-];
-
-const categories = [
-  { id: "all", name: "Sve kategorije" },
-  { id: "kamera", name: "Kamere" },
-  { id: "sistem", name: "Sistemi" },
-  { id: "dodatak", name: "Dodaci" },
-];
-
-const resolutions = [
-  { id: "all", name: "Sve rezolucije" },
-  { id: "720p", name: "HD (720p)" },
-  { id: "1080p", name: "Full HD (1080p)" },
-  { id: "1440p", name: "2K / QHD (1440p)" },
-];
-
-const featureFilters = [
-  { id: "vodootporna", name: "Vodootporno" },
-  { id: "gps", name: "GPS" },
-  { id: "nocni-vid", name: "Noćni vid" },
-  { id: "wifi", name: "WiFi" },
-  { id: "dual-kamera", name: "Dual kamera" },
-  { id: "magnetni-nosac", name: "Magnetni nosač" },
-];
-
-const priceRanges = [
-  { id: "all", name: "Sve cene", min: 0, max: Infinity },
-  { id: "0-5000", name: "Do 5.000 RSD", min: 0, max: 5000 },
-  { id: "5000-15000", name: "5.000 - 15.000 RSD", min: 5000, max: 15000 },
-  { id: "15000-25000", name: "15.000 - 25.000 RSD", min: 15000, max: 25000 },
-  { id: "25000+", name: "Preko 25.000 RSD", min: 25000, max: Infinity },
-];
+// Get data from content.json
+const allProducts = content.products.items;
+const categories = content.products.categories;
+const resolutions = content.products.resolutions;
+const featureFilters = content.products.featureFilters;
+const priceRanges = content.products.priceRanges;
 
 export default function ProizvodiPage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -164,7 +35,7 @@ export default function ProizvodiPage() {
 
     // Filter by features
     if (selectedFeatures.length > 0) {
-      filtered = filtered.filter((p) => selectedFeatures.every((f) => p.features.includes(f)));
+      filtered = filtered.filter((p) => selectedFeatures.every((f) => p.filterFeatures.includes(f)));
     }
 
     // Filter by price range

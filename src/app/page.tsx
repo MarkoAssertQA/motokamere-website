@@ -322,93 +322,92 @@ export default function Home() {
           </div>
 
           <div data-cy="products-grid" className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {content.products.items.map((product) => (
-              <Link
-                href={`/proizvod/${product.id}`}
-                key={product.id}
-                data-cy={`product-card-${product.id}`}
-                className={`group relative rounded-2xl p-6 transition-all duration-500 ${
-                  product.featured
-                    ? "bg-gradient-to-b from-cyan-500/10 to-gray-900/30 border border-cyan-500/30 scale-105 shadow-2xl shadow-cyan-500/10"
-                    : "bg-gradient-to-b from-gray-800/30 to-gray-900/30 border border-gray-800 hover:border-cyan-500/50"
-                }`}
-              >
-                {product.featured && product.badge && (
+            {content.products.homeCategories.map((category) => {
+              const colorClasses = {
+                cyan: {
+                  gradient: "from-cyan-500/20 to-cyan-600/20",
+                  border: "border-cyan-500/30 hover:border-cyan-400",
+                  iconBg: "from-cyan-400 to-cyan-600",
+                  iconShadow: "shadow-cyan-500/30",
+                  text: "text-cyan-400",
+                },
+                blue: {
+                  gradient: "from-blue-500/20 to-blue-600/20",
+                  border: "border-blue-500/30 hover:border-blue-400",
+                  iconBg: "from-blue-400 to-blue-600",
+                  iconShadow: "shadow-blue-500/30",
+                  text: "text-blue-400",
+                },
+                purple: {
+                  gradient: "from-purple-500/20 to-purple-600/20",
+                  border: "border-purple-500/30 hover:border-purple-400",
+                  iconBg: "from-purple-400 to-purple-600",
+                  iconShadow: "shadow-purple-500/30",
+                  text: "text-purple-400",
+                },
+              };
+              const colors = colorClasses[category.color as keyof typeof colorClasses] || colorClasses.cyan;
+
+              return (
+                <Link
+                  href={category.href}
+                  key={category.id}
+                  data-cy={`category-card-${category.id}`}
+                  className={`group relative rounded-2xl p-6 transition-all duration-500 bg-gradient-to-b ${colors.gradient} to-gray-900/30 border ${colors.border} hover:scale-105 hover:shadow-2xl`}
+                >
                   <div
-                    data-cy={`product-badge-${product.id}`}
-                    className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-xs font-bold rounded-full"
-                  >
-                    {product.badge}
-                  </div>
-                )}
-                {!product.featured && (
-                  <div
-                    data-cy={`product-hover-overlay-${product.id}`}
-                    className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"
+                    data-cy={`category-hover-overlay-${category.id}`}
+                    className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"
                   ></div>
-                )}
-                <div data-cy={`product-content-${product.id}`} className="relative">
-                  <div
-                    data-cy={`product-image-container-${product.id}`}
-                    className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center"
-                  >
+                  <div data-cy={`category-content-${category.id}`} className="relative">
                     <div
-                      data-cy={`product-icon-container-${product.id}`}
-                      className={`${
-                        product.featured ? "w-20 h-20" : "w-16 h-16"
-                      } bg-gradient-to-br from-cyan-400 to-blue-600 rounded-xl flex items-center justify-center ${
-                        product.featured ? "shadow-lg shadow-cyan-500/30" : ""
-                      }`}
+                      data-cy={`category-image-container-${category.id}`}
+                      className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl mb-6 flex items-center justify-center"
                     >
-                      <svg
-                        data-cy={`product-icon-${product.id}`}
-                        className={`${product.featured ? "w-10 h-10" : "w-8 h-8"} text-white`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+                      <div
+                        data-cy={`category-icon-container-${category.id}`}
+                        className={`w-20 h-20 bg-gradient-to-br ${colors.iconBg} rounded-xl flex items-center justify-center shadow-lg ${colors.iconShadow} group-hover:scale-110 transition-transform`}
                       >
-                        {product.id === "dual-system" ? (
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-                          />
-                        ) : (
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                          />
-                        )}
-                      </svg>
+                        <svg
+                          data-cy={`category-icon-${category.id}`}
+                          className="w-10 h-10 text-white"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={category.icon} />
+                        </svg>
+                      </div>
+                    </div>
+                    <h3
+                      data-cy={`category-name-${category.id}`}
+                      className="text-xl font-bold text-white mb-2 group-hover:text-white transition-colors"
+                    >
+                      {category.name}
+                    </h3>
+                    <p data-cy={`category-description-${category.id}`} className="text-gray-400 text-sm mb-4">
+                      {category.description}
+                    </p>
+                    <div data-cy={`category-footer-${category.id}`} className="flex items-center justify-end">
+                      <span
+                        data-cy={`category-button-${category.id}`}
+                        className={`px-4 py-2 text-sm font-medium rounded-lg transition-all bg-gradient-to-r ${colors.iconBg} text-white hover:shadow-lg ${colors.iconShadow} flex items-center gap-2`}
+                      >
+                        Pogledaj
+                        <svg
+                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
                     </div>
                   </div>
-                  <h3 data-cy={`product-name-${product.id}`} className="text-xl font-bold text-white mb-2">
-                    {product.name}
-                  </h3>
-                  <p data-cy={`product-description-${product.id}`} className="text-gray-500 text-sm mb-4">
-                    {product.description}
-                  </p>
-                  <div data-cy={`product-footer-${product.id}`} className="flex items-center justify-between">
-                    <span data-cy={`product-price-${product.id}`} className="text-2xl font-bold text-cyan-400">
-                      {product.price}
-                    </span>
-                    <span
-                      data-cy={`product-button-${product.id}`}
-                      className={`px-4 py-2 text-sm font-medium rounded-lg transition-all ${
-                        product.featured
-                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-lg hover:shadow-cyan-500/30"
-                          : "bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-white"
-                      }`}
-                    >
-                      {product.buttonText}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
