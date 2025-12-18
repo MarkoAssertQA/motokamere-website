@@ -93,6 +93,15 @@
         "price": "29.990 RSD",
         "buttonText": "Pogledaj",
         "featured": false
+      },
+      {
+        "id": "innovv-k7",
+        "name": "Innovv K7",
+        "description": "Dual kamera sistem 2K+2K pri 30FPS, elektronska stabilizacija slike (EIS), pregled putem aplikacije",
+        "price": "45.333 RSD",
+        "buttonText": "Kupi Sada",
+        "featured": true,
+        "badge": "NAJPOPULARNIJE"
       }
     ]
   },

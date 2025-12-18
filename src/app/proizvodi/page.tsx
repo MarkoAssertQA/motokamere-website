@@ -23,10 +23,9 @@ const allProducts = [
     price: 19990,
     priceDisplay: "19.990 RSD",
     category: "kamera",
-    resolution: "4k",
+    resolution: "1440p",
     features: ["vodootporna", "gps", "nocni-vid", "wifi"],
-    featured: true,
-    badge: "NAJPOPULARNIJE",
+    featured: false,
     inStock: true,
   },
   {
@@ -95,6 +94,19 @@ const allProducts = [
     features: ["vodootporna"],
     inStock: true,
   },
+  {
+    id: "innovv-k7",
+    name: "Innovv K7",
+    description: "Dual kamera sistem 2K+2K pri 30FPS, elektronska stabilizacija slike (EIS), pregled putem aplikacije",
+    price: 45333,
+    priceDisplay: "45.333 RSD",
+    category: "sistem",
+    resolution: "1440p",
+    features: ["vodootporna", "dual-kamera", "wifi"],
+    featured: true,
+    badge: "NAJPOPULARNIJE",
+    inStock: true,
+  },
 ];
 
 const categories = [
@@ -106,8 +118,9 @@ const categories = [
 
 const resolutions = [
   { id: "all", name: "Sve rezolucije" },
-  { id: "4k", name: "4K Ultra HD" },
-  { id: "1080p", name: "1080p Full HD" },
+  { id: "720p", name: "HD (720p)" },
+  { id: "1080p", name: "Full HD (1080p)" },
+  { id: "1440p", name: "2K / QHD (1440p)" },
 ];
 
 const featureFilters = [
