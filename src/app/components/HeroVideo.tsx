@@ -20,15 +20,54 @@ function generateShuffledStartTimes(): number[] {
   return startTimes;
 }
 
+// YouTube IFrame API types
+interface YTPlayer {
+  loadVideoById(options: { videoId: string; startSeconds: number; suggestedQuality?: string }): void;
+  setPlaybackQuality(quality: string): void;
+  playVideo(): void;
+  destroy(): void;
+}
+
+interface YTPlayerEvent {
+  target: YTPlayer;
+}
+
+interface YTPlayerConstructor {
+  new (
+    element: HTMLElement,
+    options: {
+      videoId: string;
+      playerVars?: {
+        autoplay?: number;
+        mute?: number;
+        controls?: number;
+        showinfo?: number;
+        rel?: number;
+        modestbranding?: number;
+        playsinline?: number;
+        start?: number;
+        vq?: string;
+      };
+      events?: {
+        onReady?: (event: YTPlayerEvent) => void;
+      };
+    }
+  ): YTPlayer;
+}
+
+interface YTNamespace {
+  Player: YTPlayerConstructor;
+}
+
 declare global {
   interface Window {
-    YT: typeof YT;
+    YT: YTNamespace;
     onYouTubeIframeAPIReady: () => void;
   }
 }
 
 export default function HeroVideo() {
-  const playerRef = useRef<YT.Player | null>(null);
+  const playerRef = useRef<YTPlayer | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
