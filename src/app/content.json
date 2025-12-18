@@ -7,7 +7,7 @@
   "navigation": {
     "links": [
       { "name": "Početna", "href": "#pocetna" },
-      { "name": "Proizvodi", "href": "#proizvodi" },
+      { "name": "Proizvodi", "href": "/proizvodi" },
       { "name": "Karakteristike", "href": "#karakteristike" },
       { "name": "Kontakt", "href": "#kontakt" }
     ],
@@ -33,33 +33,33 @@
     }
   },
   "stats": [
-    { "value": "500+", "label": "Zadovoljnih Vozača" },
-    { "value": "50+", "label": "Modela Kamera" },
+    { "value": "2500+", "label": "Zadovoljnih Vozača" },
+    { "value": "560+", "label": "Recenzija" },
     { "value": "24/7", "label": "Podrška" },
-    { "value": "4.9★", "label": "Ocena" }
+    { "value": "4.8★", "label": "Ocena" }
   ],
   "problems": {
     "badge": "Bez dokaza, nema pravde",
     "title": "Vozite li",
     "titleHighlight": "nezaštićeni",
-    "subtitle": "Svaki dan na putu riskirate da ostanete bez dokaza",
+    "subtitle": "Bez kamere – bez dokaza, bez zaštite",
     "ctaButton": "Pogledaj kamere",
     "items": [
       {
         "title": "Sudar bez svedoka",
-        "description": "Nema očevidaca? Vaša reč protiv njegove."
+        "description": "Nema očevidaca? Vaša reč protiv njegove reči."
       },
       {
         "title": "\"On kaže – ja kažem\" situacije",
-        "description": "Ko će da vam veruje bez video dokaza?"
+        "description": "Ko će da Vam veruje bez video dokaza?"
       },
       {
         "title": "Bežanje sa mesta nezgode",
-        "description": "Vozač pobegao? Bez snimka, nema identifikacije."
+        "description": "Vozač drugog vozila pobegao? Bez snimka, nema identifikacije."
       },
       {
         "title": "Problemi sa osiguranjem / policijom",
-        "description": "Komplikovani postupci bez čvrstih dokaza."
+        "description": "Komplikovani postupci bez čvrstih dokaza. Sa čuvenim \"veštačenjem\" dokaza."
       }
     ]
   },
@@ -98,12 +98,12 @@
   "features": {
     "title": "Zašto",
     "titleHighlight": "MotoKamere?",
-    "description": "Napravljeno od vozača, za vozače. Svaka funkcija osmišljena sa vašom bezbednošću na umu.",
+    "description": "Napravljeno od vozača, za vozače. Svaka funkcija osmišljena sa Vašom bezbednošću na umu.",
     "items": [
       {
         "icon": "M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z",
         "title": "Dokaz bahate vožnje drugih",
-        "description": "Snimi prekršaje i zaštiti sebe na putu."
+        "description": "Snimi prekršaje i zaštiti sebe na putu. Uvek imaj dokaz!"
       },
       {
         "icon": "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",

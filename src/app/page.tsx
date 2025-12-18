@@ -152,43 +152,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section data-cy="stats-section" className="relative py-16 border-y border-gray-800">
-        <div data-cy="stats-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div data-cy="stats-grid" className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {content.stats.map((stat, i) => (
-              <div key={i} data-cy={`stat-item-${i}`} className="text-center">
-                <div
-                  data-cy={`stat-value-${i}`}
-                  className="text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1"
-                >
-                  {stat.value}
-                </div>
-                <div data-cy={`stat-label-${i}`} className="text-gray-500 text-sm">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Problems Section */}
-      <section data-cy="problems-section" className="relative py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section
+        data-cy="problems-section"
+        className="relative py-20 bg-gradient-to-b from-red-950/40 via-red-900/20 to-transparent"
+      >
+        {/* Section background glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(239,68,68,0.15),transparent_70%)]"></div>
+
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Problems Card */}
           <div
             data-cy="problems-card"
-            className="relative bg-gradient-to-br from-red-950/40 to-gray-900/60 border border-red-500/30 rounded-3xl p-8 backdrop-blur-sm overflow-hidden"
+            className="relative bg-gradient-to-br from-red-900/80 to-red-950/90 border-2 border-red-500/70 rounded-3xl p-8 backdrop-blur-sm overflow-hidden shadow-[0_0_60px_rgba(239,68,68,0.3)]"
           >
-            {/* Background glow */}
-            <div className="absolute -top-20 -right-20 w-64 h-64 bg-red-500/10 rounded-full blur-[100px]"></div>
-            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-red-600/10 rounded-full blur-[100px]"></div>
+            {/* Background glow - more intense */}
+            <div className="absolute -top-20 -right-20 w-80 h-80 bg-red-500/40 rounded-full blur-[100px]"></div>
+            <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-orange-500/30 rounded-full blur-[100px]"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-red-600/25 rounded-full blur-[120px]"></div>
 
             <div className="relative z-10">
               <div className="text-center mb-8">
-                <span className="inline-flex items-center px-4 py-2 bg-red-500/20 border border-red-500/40 rounded-full text-red-400 text-sm font-semibold mb-4">
-                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="inline-flex items-center px-5 py-2.5 bg-red-600/50 border-2 border-red-400 rounded-full text-white text-sm font-bold mb-4 shadow-lg shadow-red-500/30">
+                  <svg className="w-5 h-5 mr-2 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -198,24 +184,28 @@ export default function Home() {
                   </svg>
                   {content.problems.badge}
                 </span>
-                <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
-                  {content.problems.title} <span className="text-red-400">{content.problems.titleHighlight}</span>?
+                <h2 className="text-3xl md:text-4xl font-black text-white mb-3">
+                  {content.problems.title}{" "}
+                  <span className="text-red-400 drop-shadow-[0_0_10px_rgba(248,113,113,0.5)]">
+                    {content.problems.titleHighlight}
+                  </span>
+                  ?
                 </h2>
-                <p className="text-gray-400 text-sm">{content.problems.subtitle}</p>
+                <p className="text-gray-300 text-base">{content.problems.subtitle}</p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {content.problems.items.map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-4 bg-gray-900/50 border border-gray-800 rounded-xl hover:border-red-500/30 transition-colors"
+                    className="flex items-start gap-4 p-5 bg-black/60 border-2 border-red-400/50 rounded-xl hover:border-red-400 hover:bg-red-950/50 transition-all duration-300 group shadow-lg"
                   >
-                    <span className="flex-shrink-0 w-10 h-10 bg-red-500/20 border border-red-500/40 rounded-lg flex items-center justify-center">
-                      <span className="text-red-400 text-xl">✕</span>
+                    <span className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center shadow-lg shadow-red-500/40 group-hover:scale-110 transition-transform">
+                      <span className="text-white text-xl font-bold">✕</span>
                     </span>
                     <div>
-                      <h3 className="text-white font-bold mb-1">{item.title}</h3>
-                      <p className="text-gray-500 text-sm">{item.description}</p>
+                      <h3 className="text-white font-bold text-lg mb-1">{item.title}</h3>
+                      <p className="text-gray-300 text-sm">{item.description}</p>
                     </div>
                   </div>
                 ))}
@@ -234,6 +224,84 @@ export default function Home() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section
+        data-cy="features-section"
+        id="karakteristike"
+        className="relative py-24 bg-gradient-to-b from-gray-900/50 to-transparent"
+      >
+        <div data-cy="features-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div data-cy="features-header" className="text-center mb-16">
+            <h2 data-cy="features-title" className="text-4xl md:text-5xl font-black mb-4">
+              <span data-cy="features-title-text" className="text-white">
+                {content.features.title}{" "}
+              </span>
+              <span
+                data-cy="features-title-highlight"
+                className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+              >
+                {content.features.titleHighlight}
+              </span>
+            </h2>
+            <p data-cy="features-description" className="text-gray-400 text-lg max-w-2xl mx-auto">
+              {content.features.description}
+            </p>
+          </div>
+
+          <div data-cy="features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {content.features.items.map((feature, i) => (
+              <div
+                key={i}
+                data-cy={`feature-card-${i}`}
+                className="group p-6 bg-gray-800/30 border border-gray-800 rounded-2xl hover:border-cyan-500/30 transition-all duration-300"
+              >
+                <div
+                  data-cy={`feature-icon-container-${i}`}
+                  className="w-14 h-14 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                >
+                  <svg
+                    data-cy={`feature-icon-${i}`}
+                    className="w-7 h-7 text-cyan-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} />
+                  </svg>
+                </div>
+                <h3 data-cy={`feature-title-${i}`} className="text-lg font-bold text-white mb-2">
+                  {feature.title}
+                </h3>
+                <p data-cy={`feature-description-${i}`} className="text-gray-500 text-sm">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section data-cy="stats-section" className="relative py-16 border-y border-gray-800">
+        <div data-cy="stats-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div data-cy="stats-grid" className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {content.stats.map((stat, i) => (
+              <div key={i} data-cy={`stat-item-${i}`} className="text-center">
+                <div
+                  data-cy={`stat-value-${i}`}
+                  className="text-4xl font-black bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1"
+                >
+                  {stat.value}
+                </div>
+                <div data-cy={`stat-label-${i}`} className="text-gray-500 text-sm">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -355,63 +423,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section
-        data-cy="features-section"
-        id="karakteristike"
-        className="relative py-24 bg-gradient-to-b from-gray-900/50 to-transparent"
-      >
-        <div data-cy="features-container" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div data-cy="features-header" className="text-center mb-16">
-            <h2 data-cy="features-title" className="text-4xl md:text-5xl font-black mb-4">
-              <span data-cy="features-title-text" className="text-white">
-                {content.features.title}{" "}
-              </span>
-              <span
-                data-cy="features-title-highlight"
-                className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
-              >
-                {content.features.titleHighlight}
-              </span>
-            </h2>
-            <p data-cy="features-description" className="text-gray-400 text-lg max-w-2xl mx-auto">
-              {content.features.description}
-            </p>
-          </div>
-
-          <div data-cy="features-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {content.features.items.map((feature, i) => (
-              <div
-                key={i}
-                data-cy={`feature-card-${i}`}
-                className="group p-6 bg-gray-800/30 border border-gray-800 rounded-2xl hover:border-cyan-500/30 transition-all duration-300"
-              >
-                <div
-                  data-cy={`feature-icon-container-${i}`}
-                  className="w-14 h-14 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/30 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                >
-                  <svg
-                    data-cy={`feature-icon-${i}`}
-                    className="w-7 h-7 text-cyan-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={feature.icon} />
-                  </svg>
-                </div>
-                <h3 data-cy={`feature-title-${i}`} className="text-lg font-bold text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p data-cy={`feature-description-${i}`} className="text-gray-500 text-sm">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section data-cy="cta-section" className="relative py-24">
         <div
@@ -463,7 +474,7 @@ export default function Home() {
               <div data-cy="footer-logo" className="flex items-center space-x-3 mb-6">
                 <div
                   data-cy="footer-logo-icon"
-                  className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center"
+                  className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center"
                 >
                   <svg
                     data-cy="footer-logo-svg"
@@ -481,7 +492,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <span data-cy="footer-logo-text" className="text-2xl font-bold">
-                  <span data-cy="footer-logo-text-part1" className="text-cyan-400">
+                  <span data-cy="footer-logo-text-part1" className="text-purple-400">
                     {content.brand.namePart1}
                   </span>
                   <span data-cy="footer-logo-text-part2" className="text-white">
@@ -519,13 +530,23 @@ export default function Home() {
               <ul data-cy="footer-quick-links-list" className="space-y-3">
                 {content.navigation.links.map((link, index) => (
                   <li key={link.href} data-cy={`footer-quick-link-item-${index}`}>
-                    <a
-                      href={link.href}
-                      data-cy={`footer-quick-link-${index}`}
-                      className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
-                    >
-                      {link.name}
-                    </a>
+                    {link.href.startsWith("/") ? (
+                      <Link
+                        href={link.href}
+                        data-cy={`footer-quick-link-${index}`}
+                        className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
+                      >
+                        {link.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={link.href}
+                        data-cy={`footer-quick-link-${index}`}
+                        className="text-gray-500 hover:text-cyan-400 transition-colors text-sm"
+                      >
+                        {link.name}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

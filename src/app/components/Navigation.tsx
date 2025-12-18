@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import content from "../content.json";
 
 export default function Navigation() {
@@ -14,7 +15,7 @@ export default function Navigation() {
           <div data-cy="logo-container" className="flex items-center space-x-3">
             <div
               data-cy="logo-icon"
-              className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-lg flex items-center justify-center shadow-lg shadow-cyan-500/30"
+              className="w-10 h-10 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-purple-500/30"
             >
               <svg
                 data-cy="logo-svg"
@@ -32,7 +33,7 @@ export default function Navigation() {
               </svg>
             </div>
             <span data-cy="logo-text" className="text-2xl font-bold tracking-tight">
-              <span data-cy="logo-text-part1" className="text-cyan-400">
+              <span data-cy="logo-text-part1" className="text-purple-400">
                 {content.brand.namePart1}
               </span>
               <span data-cy="logo-text-part2" className="text-white">
@@ -43,20 +44,35 @@ export default function Navigation() {
 
           {/* Desktop Navigation */}
           <div data-cy="desktop-nav" className="hidden md:flex items-center space-x-1">
-            {content.navigation.links.map((item, index) => (
-              <a
-                key={item.href}
-                href={item.href}
-                data-cy={`nav-link-${index}`}
-                className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors relative group"
-              >
-                {item.name}
-                <span
-                  data-cy={`nav-link-underline-${index}`}
-                  className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
-                ></span>
-              </a>
-            ))}
+            {content.navigation.links.map((item, index) =>
+              item.href.startsWith("/") ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  data-cy={`nav-link-${index}`}
+                  className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors relative group"
+                >
+                  {item.name}
+                  <span
+                    data-cy={`nav-link-underline-${index}`}
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  data-cy={`nav-link-${index}`}
+                  className="px-4 py-2 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors relative group"
+                >
+                  {item.name}
+                  <span
+                    data-cy={`nav-link-underline-${index}`}
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></span>
+                </a>
+              )
+            )}
           </div>
 
           {/* Desktop CTA Button */}
@@ -109,17 +125,29 @@ export default function Navigation() {
         }`}
       >
         <div data-cy="mobile-menu-content" className="px-4 py-4 space-y-2">
-          {content.navigation.links.map((item, index) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setIsMenuOpen(false)}
-              data-cy={`mobile-nav-link-${index}`}
-              className="block px-4 py-3 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all font-medium"
-            >
-              {item.name}
-            </a>
-          ))}
+          {content.navigation.links.map((item, index) =>
+            item.href.startsWith("/") ? (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                data-cy={`mobile-nav-link-${index}`}
+                className="block px-4 py-3 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all font-medium"
+              >
+                {item.name}
+              </Link>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                data-cy={`mobile-nav-link-${index}`}
+                className="block px-4 py-3 text-gray-400 hover:text-cyan-400 hover:bg-gray-800/50 rounded-lg transition-all font-medium"
+              >
+                {item.name}
+              </a>
+            )
+          )}
           <div data-cy="mobile-cta-container" className="pt-2 border-t border-gray-800">
             <button
               data-cy="mobile-cta-button"
