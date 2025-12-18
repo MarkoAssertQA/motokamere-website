@@ -6,9 +6,10 @@
   },
   "navigation": {
     "links": [
-      { "name": "Početna", "href": "#pocetna" },
+      { "name": "Početna", "href": "/" },
       { "name": "Proizvodi", "href": "/proizvodi" },
-      { "name": "Montaže", "href": "#montaze" },
+      { "name": "Montaže", "href": "/montaze" },
+      { "name": "FAQ", "href": "/faq" },
       { "name": "Kontakt", "href": "/kontakt" }
     ],
     "ctaButton": "Kupi Sada"
@@ -139,5 +140,57 @@
       "address": "Vidikovački venac 12a, 11090 Rakovica, Beograd, Srbija"
     },
     "copyright": "© 2025 MotoKamere. Sva prava zadržana."
+  },
+  "faq": {
+    "title": "Često Postavljana",
+    "titleHighlight": "Pitanja",
+    "description": "Pronađite odgovore na najčešća pitanja o našim moto kamerama, montaži i garanciji.",
+    "items": [
+      {
+        "question": "Koliko je teško montirati kameru na motocikl?",
+        "answer": "Montaža je veoma jednostavna i ne zahteva posebno tehničko znanje. Sve naše kamere dolaze sa magnetnim nosačem i detaljnim uputstvom. Većina korisnika završi montažu za 15-30 minuta. Takođe nudimo besplatnu podršku putem telefona ako vam zatreba pomoć."
+      },
+      {
+        "question": "Da li su kamere vodootporne?",
+        "answer": "Da, sve naše kamere imaju IP67 sertifikat vodootpornosti. To znači da mogu izdržati jaku kišu, prskanje vode i prašinu. Možete voziti u svim vremenskim uslovima bez brige za kameru."
+      },
+      {
+        "question": "Koliko dugo traje baterija?",
+        "answer": "Naše kamere imaju ugrađenu bateriju koja traje 3-4 sata kontinuiranog snimanja. Međutim, većina korisnika ih povezuje direktno na napajanje motocikla za neograničeno snimanje tokom vožnje."
+      },
+      {
+        "question": "Koja je maksimalna veličina SD kartice?",
+        "answer": "Naše kamere podržavaju microSD kartice do 256GB. Preporučujemo kartice klase 10 ili U3 za optimalne performanse pri 4K snimanju. Sa 256GB karticom možete snimiti približno 12-15 sati 4K materijala."
+      },
+      {
+        "question": "Da li snimak može služiti kao dokaz u sudu?",
+        "answer": "Da, video snimci sa naših kamera su prihvaćeni kao validni dokazi u sudskim postupcima u Srbiji. Naše 4K i Pro kamere imaju GPS oznake i vremenski pečat koji dodatno potvrđuju autentičnost snimka."
+      },
+      {
+        "question": "Kako funkcioniše noćno snimanje?",
+        "answer": "Naše Pro i Dual kamere imaju napredni Sony Starvis senzor koji omogućava izuzetno kvalitetno snimanje pri slabom osvetljenju. Automatski se prilagođavaju svetlosnim uslovima i obezbeđuju jasan snimak čak i noću."
+      },
+      {
+        "question": "Kolika je garancija na proizvode?",
+        "answer": "Svi naši proizvodi dolaze sa 24 meseca garancije. Garancija pokriva sve fabrički defekte i kvarove koji nisu nastali nepravilnom upotrebom. Takođe nudimo produženu garanciju do 36 meseci uz doplatu."
+      },
+      {
+        "question": "Da li nudite montažu kamere?",
+        "answer": "Da, nudimo profesionalnu montažu u Beogradu. Naši tehničari će montirati kameru na vaš motocikl i podesiti sve parametre za optimalno snimanje. Cena montaže zavisi od modela motocikla i kamere."
+      },
+      {
+        "question": "Kako mogu pregledati snimke?",
+        "answer": "Snimci se čuvaju na microSD kartici koju možete izvaditi i pregledati na računaru. Takođe, naše kamere imaju WiFi povezivanje pa možete pregledati i preuzeti snimke direktno na telefon putem naše besplatne aplikacije."
+      },
+      {
+        "question": "Šta ako kamera prestane da radi tokom garancije?",
+        "answer": "Kontaktirajte nas putem telefona ili emaila i opisite problem. U većini slučajeva rešavamo problem daljinski. Ako je potrebna zamena, poslat ćemo vam novu kameru kurirskom službom, a vi vraćate neispravnu o našem trošku."
+      }
+    ],
+    "contactCta": {
+      "title": "Imate dodatna pitanja?",
+      "description": "Naš tim je tu da vam pomogne. Kontaktirajte nas i rado ćemo odgovoriti na sva vaša pitanja.",
+      "buttonText": "Kontaktirajte Nas"
+    }
   }
 }

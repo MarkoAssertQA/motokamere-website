@@ -49,8 +49,8 @@ export default function KontaktPage() {
           <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Nas</span>
         </h1>
         <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-          Imate pitanja o našim kamerama ili montaži? Tu smo da pomognemo. Javite nam se putem forme ili nas kontaktirajte
-          direktno.
+          Imate pitanja o našim kamerama ili montaži? Tu smo da pomognemo. Javite nam se putem forme ili nas
+          kontaktirajte direktno.
         </p>
       </div>
 
@@ -76,7 +76,9 @@ export default function KontaktPage() {
                   </svg>
                 </div>
                 <h3 className="text-white font-semibold mb-1">Telefon</h3>
-                <p className="text-cyan-400 group-hover:text-cyan-300 transition-colors">{content.footer.contact.phone}</p>
+                <p className="text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                  {content.footer.contact.phone}
+                </p>
               </a>
 
               {/* Email */}
@@ -95,7 +97,9 @@ export default function KontaktPage() {
                   </svg>
                 </div>
                 <h3 className="text-white font-semibold mb-1">Email</h3>
-                <p className="text-cyan-400 group-hover:text-cyan-300 transition-colors">{content.footer.contact.email}</p>
+                <p className="text-cyan-400 group-hover:text-cyan-300 transition-colors">
+                  {content.footer.contact.email}
+                </p>
               </a>
 
               {/* Address */}
