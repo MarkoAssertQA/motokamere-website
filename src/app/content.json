@@ -9,7 +9,7 @@
       { "name": "Početna", "href": "/" },
       { "name": "Proizvodi", "href": "/proizvodi" },
       { "name": "Montaže", "href": "/montaze" },
-      { "name": "FAQ", "href": "/faq" },
+      { "name": "ČPP", "href": "/faq" },
       { "name": "Kontakt", "href": "/kontakt" }
     ],
     "ctaButton": "Kupi Sada"
